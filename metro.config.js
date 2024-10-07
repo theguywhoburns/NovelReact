@@ -3,7 +3,7 @@ const { getDefaultConfig, mergeConfig } = require("@react-native/metro-config");
 
 /** @type {import('expo/metro-config').MetroConfig} */
 const config = getDefaultConfig(__dirname);
-
+const {assetExts, sourceExts} = config.resolver;
 config.transformer.getTransformOptions = async () => ({
   transform: {
     // Inline requires are very useful for deferring loading of large dependencies/components.

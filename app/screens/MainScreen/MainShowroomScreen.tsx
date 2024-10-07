@@ -4,7 +4,7 @@ import { Screen } from "../../components"
 import { MainTabScreenProps } from "../../navigators/MainNavigator"
 import { colors, spacing } from "../../theme"
 import { UserCard } from "app/components/UserCard/UserCard"
-
+import LeftArrowSvg from "assets/icons/main/left-arrow.svg"
 export const MainShowroomScreen: FC<MainTabScreenProps<"MainShowroom">> =
   function DemoShowroomScreen(_props) {
     const timeout = useRef<ReturnType<typeof setTimeout>>()
@@ -18,7 +18,8 @@ export const MainShowroomScreen: FC<MainTabScreenProps<"MainShowroom">> =
         style={$screen}
         contentContainerStyle={$screenContent}
       >
-        <UserCard name="Вася Пупкин" age={30} imageUri={"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEVYWFn///9MTE1sbGyzs7SwsLFoaGlubm9yCKAcAAAAgklEQVR4nO3SiQnEMBRDwS9f6b/jXUgNxsHMVPAEqmT0ulUfSeVppzs2aj01bh74nzjr3ou+1ukAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+q58O2GzVaKcbtmqz0m+e2FYqmet0xzZrJj87ygB4Npc82wAAAABJRU5ErkJggg=="} isPopular={true} description={"description"} job={"job"} distance="2 km" /> 
+        <LeftArrowSvg/>
+        <UserCard users={[{id: "1", imageUri: "", isPopular: true, name: "John Doe", description: "", age: 28, job: "Software Engineer", distance: "1 mile away"}]}/> 
       </Screen>
     )
   }
