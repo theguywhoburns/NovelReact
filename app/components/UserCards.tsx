@@ -2,16 +2,21 @@ import React from 'react';
 import { View } from 'react-native';
 import User from 'app/utils/user';
 
-interface IUserCardProps {
+interface IUserCardsProps {
 	users: User[]
 }
 
-export const UserCard = ({
+export const UserCards = ({
 	users
-	}: IUserCardProps) => {
+	}: IUserCardsProps) => {
 	return (
 		<View>
 			
 		</View>
 	)
+}
+
+const $container: ViewStyle = {
+	flex: 1,
+	
 }

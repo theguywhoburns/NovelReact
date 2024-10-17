@@ -1,12 +1,10 @@
 import React, { FC, useEffect, useRef, } from "react"
 import { ViewStyle } from "react-native"
-import { Screen } from "../../components"
+import { Screen, Text } from "../../components"
 import { MainTabScreenProps } from "../../navigators/MainNavigator"
 import { colors, spacing } from "../../theme"
-import { UserCard } from "app/components/UserCard/UserCard"
-import LeftArrowSvg from "assets/icons/main/left-arrow.svg"
-export const MainShowroomScreen: FC<MainTabScreenProps<"MainShowroom">> =
-  function DemoShowroomScreen(_props) {
+export const PlacesScreen: FC<MainTabScreenProps<"Places">> =
+  function PlacesScreen(_props) {
     const timeout = useRef<ReturnType<typeof setTimeout>>()
 
     useEffect(() => {
@@ -18,8 +16,7 @@ export const MainShowroomScreen: FC<MainTabScreenProps<"MainShowroom">> =
         style={$screen}
         contentContainerStyle={$screenContent}
       >
-        <LeftArrowSvg/>
-        <UserCard users={[{id: "1", imageUri: "", isPopular: true, name: "John Doe", description: "", age: 28, job: "Software Engineer", distance: "1 mile away"}]}/> 
+        <Text>Places</Text>
       </Screen>
     )
   }

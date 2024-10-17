@@ -3,13 +3,22 @@ import { CompositeScreenProps } from "@react-navigation/native"
 import React from "react"
 import { TextStyle, ViewStyle } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
-import { Icon } from "../components"
-import { MainShowroomScreen } from "../screens"
+import { MainScreen } from "../screens"
 import { colors, spacing, typography } from "../theme"
 import { AppStackParamList, AppStackScreenProps } from "./AppNavigator"
-
+import Loopa from "assets/icons/main/menu/Loopa"
+import Video from "assets/icons/main/menu/Video"
+import Cup   from "assets/icons/main/menu/Cup"
+import Chat  from "assets/icons/main/menu/Chat"
+import Account  from "assets/icons/main/menu/Account"
+import { ReelsScreen } from "app/screens/MainScreen/ReelsScreen"
+import { PlacesScreen } from "app/screens/MainScreen/PlacesScreen"
+import { ChatScreen } from "app/screens/MainScreen/ChatScreen"
 export type MainTabParamList = {
-  MainShowroom: undefined
+  Main: undefined,
+  Reels: undefined,
+  Places: undefined,
+  Chat: { chatId: number },
 }
 
 /**
@@ -47,12 +56,45 @@ export function MainNavigator() {
       }}
     >
       <Tab.Screen
-        name="MainShowroom"
-        component={MainShowroomScreen}
+        name="Main"
+        component={MainScreen}
         options={{
           tabBarLabel: "",// Ноунеймы все у нас ахахахах, я пошёл импортировать все иконки
-          tabBarIcon: ({ focused }) => (
-            <Icon icon="components" color={focused ? colors.tint : undefined} size={30} />
+          tabBarIcon: ({focused}) => (
+            <Loopa focused={focused}/>
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="Reels"
+        component={ReelsScreen}
+        options={{
+          tabBarLabel: "",// Ноунеймы все у нас ахахахах, я пошёл импортировать все иконки
+          tabBarIcon: ({focused}) => (
+            <Video focused={focused}/>
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="Places"
+        component={PlacesScreen}
+        options={{
+          tabBarLabel: "",// Ноунеймы все у нас ахахахах, я пошёл импортировать все иконки
+          tabBarIcon: ({focused}) => (
+            <Cup focused={focused}/>
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="Chat"
+        component={ChatScreen}
+        options={{
+          tabBarLabel: "",// Ноунеймы все у нас ахахахах, я пошёл импортировать все иконки
+          tabBarIcon: ({focused}) => (
+            <Chat focused={focused}/>
           ),
         }}
       />

@@ -1,5 +1,3 @@
-// TODO: write documentation for colors and palette in own markdown file and add links from here
-
 const palette = {
   neutral100: "#FFFFFF",
   neutral200: "#F4F2F1",
@@ -35,6 +33,11 @@ const palette = {
 
   overlay20: "rgba(25, 16, 21, 0.2)",
   overlay50: "rgba(25, 16, 21, 0.5)",
+  gray: "#C8CDDF",
+  mainText: "#FB847B",
+  svgLinearGradient1: "#FF627E",
+  svgLinearGradient2: "#F4CD76",
+  svgLinearGradient3: "#FFF8F8",
 } as const
 
 export const colors = {

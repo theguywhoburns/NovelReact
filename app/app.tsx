@@ -29,6 +29,7 @@ import { customFontsToLoad } from "./theme"
 import { ErrorBoundary } from "./screens"
 import { AppNavigator, useNavigationPersistence } from "./navigators"
 import Config from "./config"
+import { GestureHandlerRootView } from "react-native-gesture-handler"
 
 export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
 
@@ -42,15 +43,12 @@ const config = {
     Main: {
       screens: {
         MainShowroom: "main",
-      },
-    }, 
-    Profile: {
-      screens: {
-        Profile: "profile",
-        Interests: "interests",
-        Places: "places",
-        Likes: "likes",
-        Chat: {
+        MainReels: "reels",
+        MainPlaces: "places",
+        MainProfile: "profile",
+        MainInterests: "interests",
+        MainLikes: "likes",
+        MainChat: {
           path: "/chat/:chatId",
         }
       },
@@ -105,6 +103,7 @@ function App(props: AppProps) {
   // otherwise, we're ready to render the app
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+      <GestureHandlerRootView>
       <ErrorBoundary catchErrors={Config.catchErrors}>
         <AppNavigator
           linking={linking}
@@ -112,6 +111,7 @@ function App(props: AppProps) {
           onStateChange={onNavigationStateChange}
         />
       </ErrorBoundary>
+      </GestureHandlerRootView>
     </SafeAreaProvider>
   )
 }
