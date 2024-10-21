@@ -12,15 +12,10 @@ import Heart from "assets/icons/main/heart.svg"
 import Diamond from "assets/icons/main/diamond.svg"
 import User from "app/utils/user"
 import BackSvg from "assets/icons/main/back.svg"
-import { ScrollView, Switch } from "react-native-gesture-handler"
+import { ScrollView } from "react-native-gesture-handler"
 import { RangeInput } from "app/components/RangeInput"
+import { TextSwitch } from "app/components/TextWithSwitch"
 
-const TextSwitch = ({ text, props} : any) => (
-  <View style={$settingsModalTextWithSwitch}>
-    <Text style={$settingsModalTextWithSwitchText}>{text}</Text>
-    <Switch {...props} style={$settingsModalTextWithSwitchSwitch} />
-  </View>
-)
 
 export const MainScreen: FC<MainTabScreenProps<"Main">> =
   function MainScreen(_props) {
@@ -42,17 +37,19 @@ export const MainScreen: FC<MainTabScreenProps<"Main">> =
             <TouchableOpacity onPress={() => setIsSettingsOpen(false)} style={$settingsModalBtn}><BackSvg /></TouchableOpacity> 
             <Text style={$settingsModalHeaderText}>Параметры поиска</Text>
           </View>
-          <ScrollView style={{width: "90%", alignSelf: "center"}}>
+          <ScrollView style={$settingsModalScrollView}>
             {/* TODO: Swap the placeholder view to the implemented in future auto svg component */}
             <View style={$settingsModalBaseSubscriptionBanner}>
               <Text style={$settingsModalBaseSubscriptionTitleText}>Базовая подписка</Text>
               <Text style={$settingsModalBaseSubscriptionSubTitleText}>Расширь свои возможности</Text>
             </View>
-            <RangeInput label="Возраст" min={18} max={99} unit="лет" containerWidth="90%" />
+            <RangeInput label="distance" min={0} max={100} unit="km" containerWidth="90%" />
             <TextSwitch text="Показывать людей в возрасте" props={{value: ShowPplInAgeRange, onValueChange: setShowPplInAgeRange}}/>
             <View style={$settingsModalSeparator} />
-            
-
+            <RangeInput label="Возраст" min={18} max={99} unit="лет" containerWidth="90%" />
+            <TextSwitch text="Показывать людей в возрасте" props={{value: ShowPplInAgeRange, onValueChange: setShowPplInAgeRange}}/>
+            <TextSwitch text="Показывать людей в возрасте" props={{value: ShowPplInAgeRange, onValueChange: setShowPplInAgeRange}}/>
+            <TextSwitch text="Показывать людей в возрасте" props={{value: ShowPplInAgeRange, onValueChange: setShowPplInAgeRange}}/>
           </ScrollView>
           </View>
         </Modal>
@@ -95,6 +92,10 @@ const Users : User[] = [
   }
 ]
 
+const $settingsModalScrollView: ViewStyle = {
+width: "90%", alignSelf: "center",
+}
+
 const $settingsModal: ViewStyle = {
   flex: 1,
   backgroundColor: colors.background,
@@ -118,17 +119,14 @@ const $settingsModalHeaderText: TextStyle = {
 };
 
 const $settingsModalBtn: ViewStyle = {
+  justifyContent: "center",
+  alignItems: "center",
   width: 38,
   height: 38,
   borderRadius: 19,
   backgroundColor: colors.palette.neutral100,
   borderColor: colors.transparent,
-  position: "absolute",
-  left: spacing.xs,
-  top: spacing.xs,
-  alignSelf: "center",
-  alignItems:"center",
-  justifyContent: "center",
+
 };
 
 const $settingsModalBaseSubscriptionBanner : ViewStyle = {
@@ -157,24 +155,6 @@ const $settingsModalBaseSubscriptionSubTitleText: TextStyle = {
   fontWeight: 400,
   fontSize: 12,
   lineHeight: 14,
-};
-
-const $settingsModalTextWithSwitch: ViewStyle = {
-  justifyContent: "space-between",
-  alignItems: "center",
-  width: "80%",
-};
-
-const $settingsModalTextWithSwitchText: TextStyle = {
-  fontFamily: 'Lato',
-  fontStyle: "normal",
-  fontWeight: 400,
-  fontSize: 12,
-  lineHeight: 14,
-};
-
-const $settingsModalTextWithSwitchSwitch: ViewStyle = {
-  alignSelf: "flex-end",
 };
 
 const $settingsModalSeparator: ViewStyle = {
