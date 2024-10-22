@@ -30,6 +30,7 @@ import { ErrorBoundary } from "./screens"
 import { AppNavigator, useNavigationPersistence } from "./navigators"
 import Config from "./config"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
+import { ThemeProvider } from "@react-navigation/native"
 
 export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
 
@@ -103,6 +104,7 @@ function App(props: AppProps) {
   // otherwise, we're ready to render the app
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+      
       <GestureHandlerRootView>
       <ErrorBoundary catchErrors={Config.catchErrors}>
         <AppNavigator

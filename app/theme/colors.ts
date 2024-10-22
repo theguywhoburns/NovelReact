@@ -1,4 +1,46 @@
-const palette = {
+interface paletteBase {
+  neutral100: string,
+  neutral200: string,
+  neutral300: string,
+  neutral400: string,
+  neutral500: string,
+  neutral600: string,
+  neutral700: string,
+  neutral800: string,
+  neutral900: string,
+
+  primary100: string,
+  primary200: string,
+  primary300: string,
+  primary400: string,
+  primary500: string,
+  primary600: string,
+
+  secondary100: string,
+  secondary200: string,
+  secondary300: string,
+  secondary400: string,
+  secondary500: string,
+
+  accent100: string,
+  accent200: string,
+  accent300: string,
+  accent400: string,
+  accent500: string,
+
+  angry100: string,
+  angry500: string,
+
+  overlay20: string,
+  overlay50: string,
+  gray: string,
+  mainText: string
+  svgLinearGradient1: string,
+  svgLinearGradient2: string,
+  svgLinearGradient3: string,
+};
+
+const lightPalette: paletteBase = {
   neutral100: "#FFFFFF",
   neutral200: "#F4F2F1",
   neutral300: "#D7CEC9",
@@ -38,15 +80,58 @@ const palette = {
   svgLinearGradient1: "#FF627E",
   svgLinearGradient2: "#F4CD76",
   svgLinearGradient3: "#FFF8F8",
-} as const
+} as const;
+
+const darkPalette: paletteBase = {
+  neutral100: "#1C1C1E",
+  neutral200: "#2C2C2E",
+  neutral300: "#3A3A3C",
+  neutral400: "#48484A",
+  neutral500: "#636366",
+  neutral600: "#8E8E93",
+  neutral700: "#AEAEB2",
+  neutral800: "#C7C7CC",
+  neutral900: "#E5E5EA",
+
+  primary100: "#3B3B3D",
+  primary200: "#545457",
+  primary300: "#6E6E71",
+  primary400: "#87878B",
+  primary500: "#A0A0A5",
+  primary600: "#B9B9C1",
+
+  secondary100: "#2F2F3A",
+  secondary200: "#474755",
+  secondary300: "#5E5E70",
+  secondary400: "#76768B",
+  secondary500: "#8D8DA6",
+
+  accent100: "#3A2F2F",
+  accent200: "#544747",
+  accent300: "#6E5E5E",
+  accent400: "#877676",
+  accent500: "#A08D8D",
+
+  angry100: "#3C2A2A",
+  angry500: "#8B0000",
+
+  overlay20: "rgba(28, 28, 30, 0.2)",
+  overlay50: "rgba(28, 28, 30, 0.5)",
+  gray: "#3A3A3C",
+  mainText: "#E5E5EA",
+  svgLinearGradient1: "#FF3B30",
+  svgLinearGradient2: "#FF9500",
+  svgLinearGradient3: "#FFCC00",
+} as const;
+
 
 export const colors = {
   /**
-   * The palette is available to use, but prefer using the name.
+   * The paletteBase is available to use, but prefer using the name.
    * This is only included for rare, one-off cases. Try to use
    * semantic names as much as possible.
    */
-  palette,
+  pallete : lightPalette,
   /**
    * A helper for making something see-thru.
    */
@@ -54,34 +139,34 @@ export const colors = {
   /**
    * The default text color in many components.
    */
-  text: palette.neutral800,
+  text: lightPalette.neutral800,
   /**
    * Secondary text information.
    */
-  textDim: palette.neutral600,
+  textDim: lightPalette.neutral600,
   /**
    * The default color of the screen background.
    */
-  background: palette.neutral200,
+  background: lightPalette.neutral200,
   /**
    * The default border color.
    */
-  border: palette.neutral400,
+  border: lightPalette.neutral400,
   /**
    * The main tinting color.
    */
-  tint: palette.primary500,
+  tint: lightPalette.primary500,
   /**
    * A subtle color used for lines.
    */
-  separator: palette.neutral300,
+  separator: lightPalette.neutral300,
   /**
    * Error messages.
    */
-  error: palette.angry500,
+  error: lightPalette.angry500,
   /**
    * Error Background.
    *
    */
-  errorBackground: palette.angry100,
+  errorBackground: lightPalette.angry100,
 }

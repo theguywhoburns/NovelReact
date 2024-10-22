@@ -6,6 +6,7 @@ export interface IRangeInput {
   label: string
   min: number
   max: number
+  step?: number
   unit: string
   width?: number
   containerWidth?: string
@@ -17,6 +18,7 @@ export const RangeInput = ({
   label,
   min,
   max,
+  step = 1,
   unit,
   width = screenWidth,
   containerWidth = "100%",
@@ -54,9 +56,8 @@ export const RangeInput = ({
         onValuesChange={handleValuesChange}
         min={min}
         max={max}
-        step={1}
+        step={step}
         allowOverlap={true}
-        snapped
       />
     </View>
   )
