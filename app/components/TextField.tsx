@@ -9,7 +9,7 @@ import {
   ViewStyle,
 } from "react-native"
 import { isRTL, translate } from "../i18n"
-import { colors, spacing, typography } from "../theme"
+import { colors, spacing, typography, useTheme } from "../theme"
 import { Text, TextProps } from "./Text"
 
 export interface TextFieldAccessoryProps {
@@ -104,6 +104,16 @@ export interface TextFieldProps extends Omit<TextInputProps, "ref"> {
  * @returns {JSX.Element} The rendered `TextField` component.
  */
 export const TextField = forwardRef(function TextField(props: TextFieldProps, ref: Ref<TextInput>) {
+  const { colors } = useTheme();
+  const $inputWrapperStyle: ViewStyle = {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    borderWidth: 1,
+    borderRadius: 4,
+    backgroundColor: colors.palette.neutral200,
+    borderColor: colors.palette.neutral400,
+    overflow: "hidden",
+  }
   const {
     labelTx,
     label,
@@ -179,7 +189,6 @@ export const TextField = forwardRef(function TextField(props: TextFieldProps, re
     >
       {!!(label || labelTx) && (
         <Text
-          preset="formLabel"
           text={label}
           tx={labelTx}
           txOptions={labelTxOptions}
@@ -221,7 +230,6 @@ export const TextField = forwardRef(function TextField(props: TextFieldProps, re
 
       {!!(helper || helperTx) && (
         <Text
-          preset="formHelper"
           text={helper}
           tx={helperTx}
           txOptions={helperTxOptions}
@@ -235,16 +243,6 @@ export const TextField = forwardRef(function TextField(props: TextFieldProps, re
 
 const $labelStyle: TextStyle = {
   marginBottom: spacing.xs,
-}
-
-const $inputWrapperStyle: ViewStyle = {
-  flexDirection: "row",
-  alignItems: "flex-start",
-  borderWidth: 1,
-  borderRadius: 4,
-  backgroundColor: colors.palette.neutral200,
-  borderColor: colors.palette.neutral400,
-  overflow: "hidden",
 }
 
 const $inputStyle: TextStyle = {

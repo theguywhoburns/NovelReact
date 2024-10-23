@@ -131,7 +131,7 @@ export const colors = {
    * This is only included for rare, one-off cases. Try to use
    * semantic names as much as possible.
    */
-  pallete : lightPalette,
+  palette : lightPalette,
   /**
    * A helper for making something see-thru.
    */

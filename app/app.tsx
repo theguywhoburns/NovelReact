@@ -30,7 +30,6 @@ import { ErrorBoundary } from "./screens"
 import { AppNavigator, useNavigationPersistence } from "./navigators"
 import Config from "./config"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
-import { ThemeProvider } from "@react-navigation/native"
 
 export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
 

@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react"
 import { View } from "react-native"
-import { ISettingsItem, SettingsItem } from "./SettingsItem/SettingsItem"
+import { ISettingsItem, SettingsItem } from "./SettingsItem"
 
 interface ISettingsListProps {
   settingsArray: ISettingsItem[]

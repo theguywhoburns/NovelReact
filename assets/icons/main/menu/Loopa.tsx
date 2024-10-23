@@ -1,11 +1,14 @@
+import { useTheme } from "app/theme";
 import * as React from "react";
 import Svg, { Path, Defs, RadialGradient, Stop } from "react-native-svg";
-import {colors} from "../../../../app/theme";
 type ILoopaProps = {
     focused?: boolean
 }
 
-const Loopa = ({focused = false, ...props} : ILoopaProps) => (
+const Loopa = ({focused = false, ...props} : ILoopaProps) => {
+  const { colors } = useTheme();
+  return (
+  
   <Svg
     width={25}
     height={24}
@@ -65,4 +68,5 @@ const Loopa = ({focused = false, ...props} : ILoopaProps) => (
     </Defs>
   </Svg>
 );
+}
 export default Loopa;

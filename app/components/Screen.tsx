@@ -12,8 +12,8 @@ import {
   View,
   ViewStyle,
 } from "react-native"
-import { colors } from "../theme"
 import { ExtendedEdge, useSafeAreaInsetsStyle } from "../utils/useSafeAreaInsetsStyle"
+import { useTheme } from "app/theme"
 
 interface BaseScreenProps {
   /**
@@ -226,6 +226,7 @@ function ScreenWithScrolling(props: ScreenProps) {
  * @returns {JSX.Element} The rendered `Screen` component.
  */
 export function Screen(props: ScreenProps) {
+  const { colors } = useTheme();
   const {
     backgroundColor = colors.background,
     KeyboardAvoidingViewProps,

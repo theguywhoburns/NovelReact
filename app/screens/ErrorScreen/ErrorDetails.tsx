@@ -1,6 +1,6 @@
 import React, { ErrorInfo } from "react"
-import { ScrollView, TextStyle, View, ViewStyle } from "react-native"
-import { Button, Icon, Screen, Text } from "../../components"
+import { Dimensions, ScrollView, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
+import { Screen, Text } from "../../components"
 import { colors, spacing } from "../../theme"
 
 export interface ErrorDetailsProps {
@@ -22,8 +22,7 @@ export function ErrorDetails(props: ErrorDetailsProps) {
       contentContainerStyle={$contentContainer}
     >
       <View style={$topSection}>
-        <Icon icon="ladybug" size={64} />
-        <Text style={$heading} preset="subheading" tx="errorScreen.title" />
+        <Text style={$heading} tx="errorScreen.title" />
         <Text tx="errorScreen.friendlySubtitle" />
       </View>
 
@@ -36,12 +35,13 @@ export function ErrorDetails(props: ErrorDetailsProps) {
         />
       </ScrollView>
 
-      <Button
-        preset="reversed"
+      <TouchableOpacity
         style={$resetButton}
         onPress={props.onReset}
-        tx="errorScreen.reset"
-      />
+       
+      >
+        <Text tx="errorScreen.reset" />
+      </TouchableOpacity>
     </Screen>
   )
 }
@@ -67,6 +67,7 @@ const $errorSection: ViewStyle = {
   flex: 2,
   backgroundColor: colors.separator,
   marginVertical: spacing.md,
+  maxWidth: Dimensions.get("window").width - spacing.lg * 2,
   borderRadius: 6,
 }
 

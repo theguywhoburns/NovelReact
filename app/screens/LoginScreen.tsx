@@ -1,10 +1,11 @@
 import { observer } from "mobx-react-lite"
 import React, { ComponentType, FC, useEffect, useMemo, useRef, useState } from "react"
-import { TextInput, TextStyle, ViewStyle } from "react-native"
-import { Button, Icon, Screen, Text, TextField, TextFieldAccessoryProps } from "../components"
+import { TextInput, TextStyle, TouchableOpacity, ViewStyle } from "react-native"
+import { Screen, Text} from "../components"
 import { useStores } from "../models"
 import { AppStackScreenProps } from "../navigators"
 import { colors, spacing } from "../theme"
+import { TextField, TextFieldAccessoryProps } from "app/components/TextField"
 
 interface LoginScreenProps extends AppStackScreenProps<"Login"> {}
 
@@ -52,13 +53,9 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen(_
 
   const PasswordRightAccessory: ComponentType<TextFieldAccessoryProps> = useMemo(
     () =>
-      function PasswordRightAccessory(props: TextFieldAccessoryProps) {
+      function PasswordRightAccessory() {
         return (
-          <Icon
-            icon={isAuthPasswordHidden ? "view" : "hidden"}
-            color={colors.palette.neutral800}
-            containerStyle={props.style}
-            size={20}
+          <TouchableOpacity
             onPress={() => setIsAuthPasswordHidden(!isAuthPasswordHidden)}
           />
         )
@@ -106,13 +103,12 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen(_
         RightAccessory={PasswordRightAccessory}
       />
 
-      <Button
+      <TouchableOpacity
         testID="login-button"
-        tx="loginScreen.tapToLogIn"
+        
         style={$tapButton}
-        preset="reversed"
         onPress={login}
-      />
+      ><Text tx="loginScreen.tapToLogIn" /></TouchableOpacity>
     </Screen>
   )
 })
