@@ -52,6 +52,7 @@
     "expo-localization": "^15.0.3",
     "expo-splash-screen": "^0.27.6",
     "expo-status-bar": "~1.12.1",
+    "global": "^4.4.0",
     "i18n-js": "^4.4.3",
     "mobx": "6.10.2",
     "mobx-react-lite": "4.0.5",
@@ -170,13 +171,6 @@
       "@typescript-eslint/no-explicit-any": 0,
       "@typescript-eslint/no-object-literal-type-assertion": 0,
       "@typescript-eslint/no-var-requires": 0,
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          "argsIgnorePattern": "^_",
-          "varsIgnorePattern": "^_"
-        }
-      ],
       "comma-dangle": 0,
       "multiline-ternary": 0,
       "no-undef": 0,

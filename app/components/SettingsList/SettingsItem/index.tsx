@@ -1,6 +1,7 @@
+import { BottomSheetModal } from "app/components/BottomModal"
 import { LabeledRadioButton } from "app/components/LabeledRadioButton"
 import React, { useCallback, useState } from "react"
-import { Modal, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
+import { TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
 import { Text } from "../../Text"
 
 export interface ISettingsOption {
@@ -51,16 +52,10 @@ export const SettingsItem = ({
         </View>
         <Text>{">"}</Text>
       </TouchableOpacity>
-      <Modal
-        style={$modal}
-        animationType="slide"
-        transparent={true}
-        visible={isModalVisible}
-        onRequestClose={handleModalClose}
-      >
+      <BottomSheetModal onClose={handleModalClose} visible={isModalVisible}>
         <TouchableOpacity style={$modalContainer} onPress={handleModalClose}>
           <View style={$modalInner}>
-            <Text>{title}</Text>
+            <Text style={$modalTitle}>{title}</Text>
             {options.map((option) => (
               <LabeledRadioButton
                 key={option.label}
@@ -72,7 +67,7 @@ export const SettingsItem = ({
           </View>
           <TouchableOpacity>Продолжить</TouchableOpacity>
         </TouchableOpacity>
-      </Modal>
+      </BottomSheetModal>
     </>
   )
 }
@@ -100,12 +95,16 @@ const $title: TextStyle = {
   marginLeft: 10,
 }
 
-const $modal: ViewStyle = {
+const $modalTitle: TextStyle = {
+  textAlign: "center",
+}
+
+/* const $modal: ViewStyle = {
   width: "100%",
   height: "100%",
   justifyContent: "center",
   alignItems: "center",
-}
+} */
 
 const $modalContainer: ViewStyle = {
   backgroundColor: "white",
